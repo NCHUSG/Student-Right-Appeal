@@ -20,4 +20,9 @@ class HomeController extends BaseController {
 		return View::make('01');
 	}
 
+	public function showsurvey()
+	{
+		return View::make('survey');
+	}
+
 }

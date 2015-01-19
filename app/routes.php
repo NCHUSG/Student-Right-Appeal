@@ -16,4 +16,11 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('/ha', 'HomeController@showWelcome');
+Route::get('/survey', 'HomeController@showsurvey');
+
+Route::get('/lalala', function()
+{
+    return View::make('testview', array('name' => 'Taylor'));
+});
+
+Route::get('/fooooo',array('uses' => 'HomeController@showWelcome'));
