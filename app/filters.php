@@ -88,3 +88,14 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+/*
+ * 2/5 edit by lego   
+ */
+Route::filter('login_only', function() 
+{
+	if(!Session::has('User'))
+	{
+		return Redirect::route('login');
+	}
+
+});

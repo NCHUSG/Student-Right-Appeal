@@ -11,16 +11,19 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', array('uses' => 'HomeController@index',
+					  'as' => 'index')
+);
 
-Route::get('/survey', 'HomeController@showsurvey');
+Route::get('/login',array('uses' => 'LogConotrller@log',
+						  'as' => 'login')
+);
 
-Route::get('/lalala', function()
+Route::group(array('before' => 'login_only'), function()
 {
-    return View::make('testview', array('name' => 'Taylor'));
+	Route::get('/appeal', array('uses' => 'AppealController@appeal',
+								'as' => 'appeal')
+	);
 });
 
 Route::get('/fooooo',array('uses' => 'HomeController@showWelcome'));
